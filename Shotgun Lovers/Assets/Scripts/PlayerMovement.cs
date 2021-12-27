@@ -26,60 +26,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        if (Input.GetKey("w"))
+        float Xaxis = Input.GetAxis("Horizontal");
+        float Yaxis = Input.GetAxis("Vertical");
+        Vector3 movementdirection = new Vector3(Xaxis, 0, Yaxis);
+        movementdirection.Normalize();
+        transform.Translate(movementdirection * speed * Time.deltaTime, Space.Self);
+        if (movementdirection != Vector3.zero)
         {
+            transform.forward = movementdirection;
             anim.SetBool("moving", true);
-
-            transform.Translate(-Vector3.forward * -speed * Time.deltaTime);
-
-        }
-        if (Input.GetKeyUp("w"))
-        {
-            anim.SetBool("moving", false);
-
-        }
-        if (Input.GetKey("s"))
-        {
-            anim.SetBool("moving", true);
-
-            transform.Translate(Vector3.forward * -speed * Time.deltaTime);
-
-        }
-        if (Input.GetKeyUp("s"))
-        {
-            anim.SetBool("moving", false);
-
-
-        }
-        if (Input.GetKey("d"))
-        {
-            anim.SetBool("moving", true);
-
-            transform.Translate(-Vector3.right * -speed * Time.deltaTime);
-
-        }
-        if (Input.GetKeyUp("d")) //release button  
-        {
-            anim.SetBool("moving", false);
-
-
-
         }
 
-      
-        if (Input.GetKey("a"))
+        if (movementdirection == Vector3.zero)
         {
-            anim.SetBool("moving", true);
-            transform.Translate(-Vector3.left * -speed * Time.deltaTime);
-        }
-        if (Input.GetKeyUp("a")) //release button  
-        {
-            anim.SetBool("moving", false);
             
-
+            anim.SetBool("moving", false);
         }
+
 
     }
 
