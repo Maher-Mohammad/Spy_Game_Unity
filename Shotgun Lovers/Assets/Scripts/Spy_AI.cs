@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Spy_AI : MonoBehaviour
 {
     public NavMeshAgent agent;
-
+    public Animator anim;
     
     private List<Vector3> cool = new List<Vector3>();
   
@@ -20,10 +20,15 @@ public class Spy_AI : MonoBehaviour
 
     void Start()
     {
-       
+        anim.GetComponent<Animator>();
         cool.Add(new Vector3(-10f, 3.48f, -3f));
         cool.Add(new Vector3(-6.39f, 3.48f, -10.72f));
-        cool.Add(new Vector3(9f, 3.48f, 15f));
+        cool.Add(new Vector3(6.93f, 3.48f, 4.13f));
+        cool.Add(new Vector3(2.25f, 3.48f, -13.77f));
+        cool.Add(new Vector3(-0.87f, 3.48f, -8.36f));
+        cool.Add(new Vector3(-0.87f, 3.48f, -3.45f));
+        
+      
         agent = GetComponent<NavMeshAgent>(); 
         
     }
@@ -36,7 +41,7 @@ public class Spy_AI : MonoBehaviour
     {
         if (!walkpointset)
         { 
-            int x = Random.Range(0, 2);
+            int x = Random.Range(0,5);
             Debug.Log(x);
             walkpoint = cool[x];
             walkpointset = true;
@@ -45,15 +50,21 @@ public class Spy_AI : MonoBehaviour
         if (walkpointset)
         {
             agent.SetDestination(walkpoint);
+            anim.SetBool("moving", true);
         
         }
         Vector3 distancetowalkpoint = transform.position - walkpoint;
 
         if (distancetowalkpoint.magnitude < 1f)
         {
-            Debug.Log("change destination");
+            Debug.Log("destination reached");
+            anim.SetBool("moving", false);
             walkpointset = false;
+           
+           
         }
+
+       
     }
 
 
