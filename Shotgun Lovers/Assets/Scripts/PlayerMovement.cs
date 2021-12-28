@@ -27,10 +27,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float Xaxis = Input.GetAxis("Horizontal");
-        float Yaxis = Input.GetAxis("Vertical");
-        Vector3 movementdirection = new Vector3(Xaxis, 0, Yaxis);
+        float zaxis = Input.GetAxis("Vertical");
+        
+
+
+        Vector3 movementdirection = new Vector3(Xaxis, 0, zaxis);
+       
         movementdirection.Normalize();
-        transform.Translate(movementdirection * speed * Time.deltaTime, Space.Self);
+        transform.Translate(movementdirection * speed * Time.deltaTime, Space.World);
         if (movementdirection != Vector3.zero)
         {
             transform.forward = movementdirection;
