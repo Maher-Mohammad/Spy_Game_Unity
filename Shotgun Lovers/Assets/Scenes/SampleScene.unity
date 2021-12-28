@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: dfcddfe76ad6d444fa8b64e78a55e2e6, type: 2}
 --- !u!4 &499598565
 Transform:
   m_ObjectHideFlags: 0
@@ -11424,17 +11424,17 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 0}
-  shallowColor: {r: 0.10759912, g: 0.7924528, b: 0.72247434, a: 1}
-  deepColor: {r: 0.10242269, g: 0.95283014, b: 0.92675793, a: 1}
+  shallowColor: {r: 0.10759891, g: 0.7924528, b: 0.72247434, a: 1}
+  deepColor: {r: 0.1024225, g: 0.95283014, b: 0.92675793, a: 1}
   colorDepth: 3.49
   horizonColor: {r: 0, g: 0.8066016, b: 0.8490566, a: 1}
   horizonDistance: 8
   shoreFade: 0
-  shoreColor: {r: 0.34898305, g: 0.34898305, b: 0.34898305, a: 0}
+  shoreColor: {r: 0.34898284, g: 0.34898284, b: 0.34898284, a: 0}
   shoreStrength: 0
   shoreBlend: 0
   shoreDepth: 0.31
-  waveColor: {r: 0.068311416, g: 0.17923933, b: 0.1759767, a: 0}
+  waveColor: {r: 0.068311244, g: 0.17923912, b: 0.17597649, a: 0}
   underwaterColor: {r: 0.2038979, g: 0.3097789, b: 0.517647, a: 0}
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
