@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 7;
     private Vector2 startPos;
     bool once = false;
-    
+    public GameObject player;
+
 
     private Animator anim;
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float Xaxis = Input.GetAxis("Horizontal");
         float zaxis = Input.GetAxis("Vertical");
-        
+      
+
 
 
         Vector3 movementdirection = new Vector3(Xaxis, 0, zaxis);
