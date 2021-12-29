@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 7;
     private Vector2 startPos;
     bool once = false;
-    public GameObject player;
+    
+    public GameObject camera;
 
 
     private Animator anim;
@@ -29,15 +30,25 @@ public class PlayerMovement : MonoBehaviour
     {
         float Xaxis = Input.GetAxis("Horizontal");
         float zaxis = Input.GetAxis("Vertical");
-      
 
 
+        Vector3 forward = camera.transform.forward;
+        Vector3 right = camera.transform.right;
+        forward.y = 0f;
+        right.y = 0f;
 
-        Vector3 movementdirection = new Vector3(Xaxis, 0, zaxis);
+        forward.Normalize();
+        right.Normalize();
+
+
+        Vector3 movementdirection = forward * zaxis + right * Xaxis;
        
         movementdirection.Normalize();
         transform.Translate(movementdirection * speed * Time.deltaTime, Space.World);
-        if (movementdirection != Vector3.zero)
+
+
+
+        if (movementdirection != Vector3.zero) //rotation part
         {
             transform.forward = movementdirection;
             anim.SetBool("moving", true);
